@@ -7,9 +7,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Version>1.0.0</Version>
 
+    <!-- Local game install (for auto-copy after build) -->
     <GameDir>D:\Juegos\steamapps\common\Data Center</GameDir>
-    <MelonLoaderDir>$(GameDir)\MelonLoader</MelonLoaderDir>
-    <Il2CppAssembliesDir>$(MelonLoaderDir)\Il2CppAssemblies</Il2CppAssembliesDir>
   </PropertyGroup>
 
   <!-- Auto-copy to Mods folder after build (only when game is installed locally) -->
@@ -18,53 +17,44 @@
   </Target>
 
   <ItemGroup>
-    <!-- MelonLoader -->
     <Reference Include="MelonLoader">
-      <HintPath>$(MelonLoaderDir)\net6\MelonLoader.dll</HintPath>
+      <HintPath>..\lib\MelonLoader.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Il2CppInterop.Runtime">
-      <HintPath>$(MelonLoaderDir)\net6\Il2CppInterop.Runtime.dll</HintPath>
+      <HintPath>..\lib\Il2CppInterop.Runtime.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="0Harmony">
-      <HintPath>$(MelonLoaderDir)\net6\0Harmony.dll</HintPath>
+      <HintPath>..\lib\0Harmony.dll</HintPath>
       <Private>false</Private>
     </Reference>
-
-    <!-- Il2Cpp runtime types -->
     <Reference Include="Il2Cppmscorlib">
-      <HintPath>$(Il2CppAssembliesDir)\Il2Cppmscorlib.dll</HintPath>
+      <HintPath>..\lib\Il2Cppmscorlib.dll</HintPath>
       <Private>false</Private>
     </Reference>
-
-    <!-- Game Assembly -->
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(Il2CppAssembliesDir)\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\lib\Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
     </Reference>
-
-    <!-- Unity -->
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(Il2CppAssembliesDir)\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\lib\UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>$(Il2CppAssembliesDir)\UnityEngine.dll</HintPath>
+      <HintPath>..\lib\UnityEngine.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>$(Il2CppAssembliesDir)\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>..\lib\UnityEngine.UIModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>$(Il2CppAssembliesDir)\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\lib\UnityEngine.UI.dll</HintPath>
       <Private>false</Private>
     </Reference>
-
-    <!-- TextMeshPro -->
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>$(Il2CppAssembliesDir)\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>..\lib\Unity.TextMeshPro.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>

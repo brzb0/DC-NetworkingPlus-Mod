@@ -2,6 +2,10 @@
 
 A MelonLoader mod for [Data Center](https://store.steampowered.com/app/4170200/Data_Center/) that adds custom Router and Firewall devices with 32 QSFP+ ports.
 
+**Repository:** https://github.com/brzb0/DC-NetworkingPlus-Mod
+
+**Releases:** https://github.com/brzb0/DC-NetworkingPlus-Mod/releases
+
 ## Features
 
 - **Router QSFP+** — Custom router device with routing table and ASN configuration
@@ -35,7 +39,7 @@ A MelonLoader mod for [Data Center](https://store.steampowered.com/app/4170200/D
 dotnet build -c Release
 ```
 
-The DLL is auto-copied to `Data Center/Mods/` after build (configured in `.csproj`).
+Reference DLLs are in the `lib/` folder (MelonLoader, Harmony, Unity, game assemblies). The DLL is auto-copied to `Data Center/Mods/` after build when the game is installed locally.
 
 ## How It Works
 
@@ -56,15 +60,19 @@ Custom devices are registered in `routersPrefabs[]` and `firewallsPrefabs[]` arr
 NetworkingPlus/
 ├── README.md
 ├── NetworkingPlus.sln
+├── .gitignore
+├── .github/workflows/build.yml    ← CI/CD
+├── lib/                            ← Reference DLLs (MelonLoader, Unity, Game)
 └── DataCenter-NetworkingPlus/
     ├── NetworkingPlus.csproj
-    ├── Core.cs              — Mod entry point, prefab building, shop injection, tinting
-    ├── DeviceDefinition.cs  — Device definitions (names, colors, prices)
-    ├── DeviceRegistry.cs    — Custom device ID registry
-    └── Patches.cs           — Harmony patches and CartButtonHandler
+    ├── Core.cs                     — Mod entry point, prefab building, shop injection, tinting
+    ├── DeviceDefinition.cs         — Device definitions (names, colors, prices)
+    ├── DeviceRegistry.cs           — Custom device ID registry
+    └── Patches.cs                  — Harmony patches and CartButtonHandler
 ```
 
 ## Credits
 
 - **Brzb02** — Author
+- Repository: https://github.com/brzb0/DC-NetworkingPlus-Mod
 - Built with [MelonLoader](https://melonwiki.xyz/) and [HarmonyLib](https://github.com/pardeike/Harmony)
