@@ -13,11 +13,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: false
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '6.0.x'
+
+      - name: Verify lib files
+        shell: bash
+        run: |
+          echo "=== lib/ contents ==="
+          ls -la lib/
+          echo "=== .csproj references ==="
+          grep HintPath DataCenter-NetworkingPlus/NetworkingPlus.csproj
 
       - name: Extract version from tag
         id: version
