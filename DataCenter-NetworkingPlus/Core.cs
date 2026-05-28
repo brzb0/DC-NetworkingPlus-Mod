@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-[assembly: MelonInfo(typeof(NetworkingPlus.Core), "NetworkingPlus", "1.0.0", "Brzb02")]
+[assembly: MelonInfo(typeof(NetworkingPlus.Core), "NetworkingPlus", "1.0.2", "Brzb02")]
 [assembly: MelonGame("Waseku", "Data Center")]
 
 namespace NetworkingPlus
@@ -153,14 +153,31 @@ namespace NetworkingPlus
             if (root == null) return;
 
             int defIndex = -1;
-            int idx = 0;
-            foreach (var def in DeviceList.All)
+            if (prefabID >= ROUTER_ID_BASE)
             {
-                if (def.Kind == DeviceKind.Router && prefabID >= ROUTER_ID_BASE)
-                { if (prefabID - ROUTER_ID_BASE == idx) { defIndex = idx; break; } }
-                else if (def.Kind == DeviceKind.Firewall && prefabID >= FIREWALL_ID_BASE)
-                { if (prefabID - FIREWALL_ID_BASE == idx) { defIndex = idx; break; } }
-                idx++;
+                int localIdx = prefabID - ROUTER_ID_BASE;
+                int count = 0;
+                for (int i = 0; i < DeviceList.All.Length; i++)
+                {
+                    if (DeviceList.All[i].Kind == DeviceKind.Router)
+                    {
+                        if (count == localIdx) { defIndex = i; break; }
+                        count++;
+                    }
+                }
+            }
+            else if (prefabID >= FIREWALL_ID_BASE)
+            {
+                int localIdx = prefabID - FIREWALL_ID_BASE;
+                int count = 0;
+                for (int i = 0; i < DeviceList.All.Length; i++)
+                {
+                    if (DeviceList.All[i].Kind == DeviceKind.Firewall)
+                    {
+                        if (count == localIdx) { defIndex = i; break; }
+                        count++;
+                    }
+                }
             }
             if (defIndex < 0 || defIndex >= DeviceList.All.Length) return;
             Color tint = DeviceList.All[defIndex].DeviceColor;

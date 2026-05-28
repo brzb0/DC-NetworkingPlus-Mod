@@ -16,7 +16,7 @@ namespace NetworkingPlus
 
     internal static class DeviceList
     {
-        internal const int FixedPrice = 22000;
+        internal const int FixedPrice = 13500;
 
         internal static readonly DeviceDefinition[] All = new[]
         {
