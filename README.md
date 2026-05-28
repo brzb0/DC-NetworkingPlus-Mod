@@ -30,8 +30,8 @@ A MelonLoader mod for [Data Center](https://store.steampowered.com/app/4170200/D
 
 | Device         | Price  | Color     |
 |----------------|--------|-----------|
-| Router QSFP+   | $22,000 | Green    |
-| Firewall QSFP+ | $22,000 | Dark (#1B1B1B) |
+| Router QSFP+   | $13,500 | Green    |
+| Firewall QSFP+ | $13.500 | Dark (#1B1B1B) |
 
 ## Building from Source
 
